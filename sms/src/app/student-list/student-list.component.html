@@ -1,0 +1,28 @@
+<p>student-list works!</p>
+<h1>Student data</h1>
+<app-view-student *ngIf="selectedStudent" [selectedStudent]="selectedStudent">
+</app-view-student>
+<table>
+    <thead>
+        <th>Id</th>
+        <th><fa-icon [icon]="userIcon"></fa-icon>first_name</th>
+        <th>last_name</th>
+        <th>email</th>
+        <th>gender</th>
+        <th>Username</th>
+        <th>Contact</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let student of students">
+            <td>{{ student.id }}</td>
+            <td>{{ student.first_name }}</td>
+            <td>{{ student.last_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.gender }}</td>
+            <td>{{ student.username }}</td>
+            <td>{{ student.contact }}</td>
+            <td><button (click)="viewDetails(student)">View Details</button></td>
+        </tr>
+    </tbody>
+</table>

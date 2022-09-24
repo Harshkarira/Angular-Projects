@@ -1,0 +1,24 @@
+<p>product-list works</p>
+<h1>Product-List</h1>
+<app-product-details [productDisplay]="selectedProduct"></app-product-details>
+<table>
+
+    <thead>
+        <th>Id</th>
+        <th>name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of product">
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td><button (click)="selectProduct(product)">View Details</button></td>
+        </tr>
+    </tbody>
+</table>
