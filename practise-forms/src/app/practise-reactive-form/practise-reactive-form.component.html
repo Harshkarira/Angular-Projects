@@ -1,0 +1,156 @@
+<form [formGroup]="employeeForm" (ngSubmit)="submitForm()">
+  <div class="form-group">
+      <label for="firstname">FirstName</label> 
+      <input type="text" class="form-control" 
+      id="firstname"
+      formControlName="firstname">
+  </div>
+  <div *ngIf="employeeForm.get('firstname')?.errors?.['required'] && employeeForm.get('firstname')?.touched" class="alert alert-danger">
+      First Name is required
+  </div>
+  <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" class="form-control" formControlName="lastname">
+  </div>
+  <div *ngIf="employeeForm.get('lastname')?.errors?.['required'] && employeeForm.get('lastname')?.touched" class="alert alert-danger">
+      lastname is required
+  </div>
+  <div class="form-group">
+      <label for="email">Email id</label>
+      <input type="text" class="form-control" formControlName="email">
+  </div>
+  <div *ngIf="employeeForm.get('email')?.errors?.['required'] && employeeForm.get('email')?.touched" class="alert alert-danger">
+      Email ID is required
+  </div>
+  <div class="form-group">
+      <label for="contact">Contact</label>
+      <input type="email" class="form-control" formControlName="contact">
+  </div>
+  <div *ngIf="employeeForm.get('contact')?.errors?.['required'] && employeeForm.get('contact')?.touched" class="alert alert-danger">
+      Contact no. is required
+  </div>
+  <div class="form-group">
+      <p>How did you hear about this Open House Form?</p>
+      <label for="source"></label>
+      <input type="text" class="form-control" formControlName="source">
+  </div>
+  <div formGroupName="rating">
+      <p>Please rate this house</p>
+      <br>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                  <th>&nbsp;</th>
+                  <!-- <th style="padding:30px"></th> -->
+                  <th style="padding:30px" *ngFor="let val of values">{{val}}</th>
+              <tr>
+          </thead>
+          <tbody>
+              <tr>
+                <th>Exterior</th>
+                <th *ngFor="let val of values"><input type="radio" [value]="val" formControlName="exterior"></th>
+              </tr>
+              <tr>
+                <th>Interior</th>
+                <th *ngFor="let val of values"><input type="radio" [value]="val" formControlName="interior"></th>
+              </tr>
+              <tr>
+                <th>Location</th>
+                <th *ngFor="let val of values"><input type="radio" [value]="val" formControlName="location"></th>
+              </tr>
+              <tr>
+                <th>Price</th>
+                <th *ngFor="let val of values"><input type="radio" [value]="val" formControlName="price"></th>
+              </tr>
+              <tr>
+                <th>Amenities</th>
+                <th *ngFor="let val of values"><input type="radio" [value]="val" formControlName="amenities"></th>
+              </tr>
+          </tbody>
+      </table>
+   </div>
+   <div>
+      <label for="most" >What do you like the most about this house?</label><br>
+      <textarea name="" id="" cols="100" rows="4" formControlName="mostliked"></textarea>
+   </div>
+   <div>
+      <label for="least" >What do you like the least about this house?</label><br>
+      <textarea name="" id="" cols="100" rows="4" formControlName="leastliked"></textarea>
+   </div>
+   <div>
+
+      <button type="submit" [disabled]="employeeForm.status==='INVALID'">Submit Form</button>
+      
+  </div>
+  <div>
+    <table>
+      <thead>
+        <tr>
+          <td style="padding: 30px;">First Name</td>
+          <td style="padding: 30px;">Last Name</td>
+          <td style="padding: 30px;">Email</td>
+          <td style="padding: 30px;">Contact</td>
+          <td style="padding: 30px;">Source</td>
+          <td class="text-center">Rating
+            <tr>
+              <td style="padding:20px;">Exterior</td>
+              <td style="padding: 20px;">Interior</td>
+              <td style="padding:20px ;">Location</td>
+              <td style="padding:20px ;">Price</td>
+              <td style="padding:20px ;">Amenities</td>
+            </tr>
+          </td>
+          <td style="padding: 30px;">Most Liked</td>
+          <td style="padding: 30px;">Least Liked</td>
+          <td></td>
+      </thead>
+      <tbody *ngFor="let entry of entries; let i=index">
+        <tr>
+          <td >
+            {{entry.firstname}}
+          </td>
+          <td >
+            {{entry.lastname}}
+          </td>
+          <td >
+            {{entry.email}}
+          </td>
+          <td >
+            {{entry.contact}}
+          </td>
+          <td >
+            {{entry.source}}
+          </td>
+          <td>
+            <tr>
+              <td style="padding: 30px;">
+                {{entry.rating.exterior}}
+              </td>
+              <td style="padding: 30px;">
+                {{entry.rating.interior}}
+              </td>
+              <td style="padding: 30px;">
+                {{entry.rating.location}}
+              </td>
+              <td style="padding: 30px;">
+                {{entry.rating.price}}
+              </td>
+              <td style="padding: 30px;">
+                {{entry.rating.amenities}}
+              </td>
+            </tr>
+          </td>
+          <td >
+            {{entry.mostliked}}
+          </td>
+          <td >
+            {{entry.leastliked}}
+          </td>
+          <td>
+            <button type="button" (click)="delete(i)">delete</button>
+          </td>
+        </tr>
+      </tbody>         
+    </table>
+  </div>
+</form>

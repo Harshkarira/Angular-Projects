@@ -80,47 +80,18 @@
                 <thead>
                   <tr class="text-muted">
                     <th>#</th>
-                    <th>Name</th>
-                    <th>Salary</th>
-                    <th>Date</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
                     <th>Contact</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>John</td>
-                    <td>$2000</td>
-                    <td>25/05/2018</td>
-                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
-                  </tr>
-                  <tr>
-                    <th>2</th>
-                    <td>Ann</td>
-                    <td>$2000</td>
-                    <td>25/05/2018</td>
-                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
-                  </tr>
-                  <tr>
-                    <th>3</th>
-                    <td>Mark</td>
-                    <td>$2000</td>
-                    <td>25/05/2018</td>
-                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
-                  </tr>
-                  <tr>
-                    <th>4</th>
-                    <td>Mary</td>
-                    <td>$2000</td>
-                    <td>25/05/2018</td>
-                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <td>Bob</td>
-                    <td>$2000</td>
-                    <td>25/05/2018</td>
-                    <td><button type="button" class="btn btn-info btn-sm">Message</button></td>
+                  <tr *ngFor="let students of madestudents let looper=index;">{{looper+1}}
+                    <td>{{ students.first_name }}</td>
+                    <td>{{ students.last_name }}</td>
+                    <td>{{ students.email }}</td>
+                    <td>{{ students.contact }}</td>
                   </tr>
                 </tbody>
               </table>

@@ -5,24 +5,26 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from './shared/shared.module';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
-import { StudentModule } from './student/student.module';
 import { TestComponent } from './test/test.component';
-import { FormsModule } from '@angular/forms';
-import { StudentListComponent } from './student/student-list/student-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StudentModule } from './student/student.module';
+import { ReactiveFormsComponent } from './reactive-forms/reactive-forms.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeacherListComponent,
     TestComponent,
+    ReactiveFormsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     SharedModule,
-    StudentModule,
     FormsModule,
+    StudentModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
