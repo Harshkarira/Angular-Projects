@@ -26,7 +26,7 @@
         </div>
         <!-- Nested row for non-featured blog posts-->
         <div class="row">
-          <div class="col-lg-6" *ngFor="let card of cards">
+          <div class="col-lg-6" *ngFor="let blog of blogsData">
             <!-- Blog post-->
             <div class="card mb-4">
               <a href="#!"
@@ -36,12 +36,12 @@
                   alt="..."
               /></a>
               <div class="card-body">
-                <div class="small text-muted">{{card.date}}</div>
-                <h2 class="card-title h4">{{card.title}}</h2>
+                <div class="small text-muted">{{blog.PublishedAT | date}}</div>
+                <h2 class="card-title h4">{{blog.Title}}</h2>
                 <p class="card-text">
-                  {{card.description}}
+                  {{blog.ShortDescription}}
                 </p>
-                <a class="btn btn-custom" href="#!">{{card.details}}</a>
+                <a class="btn btn-custom" href="#">Read more →</a>
               </div>
             </div>
           </div> 

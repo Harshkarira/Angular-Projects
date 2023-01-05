@@ -1,15 +1,15 @@
-export interface cards{
+export interface BlogData{
     'PostID': number;
-    'title': string;
-    'Shortdescription': string;
-    'description': string;
-    'CategoryID':number;
+    'Title': string;
+    'ShortDescription': string;
+    'Description': string;
+    'CategoryId':number;
     'Categoryname':string;
     'slug':string;
     'UserID':number;
     'Username':string;
     'Numberlikes':number;
     'Numbercomments':number;
-    'PusblishedAT':string;
+    'PublishedAT':string;
     'tags':string;
 }

@@ -5,6 +5,9 @@ import { cards } from './shared/interfaces';
   providedIn: 'root'
 })
 export class MediumService {
+  fetchblogs() {
+    throw new Error('Method not implemented.');
+  }
 
   cards: cards[] = [
     {
