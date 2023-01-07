@@ -11,7 +11,16 @@ export class MediumService {
   constructor(private httpclient: HttpClient) { }
 
   fetchblogs(): Observable<any>{
-    return this.httpclient.get(`${ApplicationConstants.APIURL}/blogs`);
+    return this.httpclient.get(`${ApplicationConstants.APIURL}/blog`);
   }
+
+  fetchblog(slug:String): Observable<any>{
+    return this.httpclient.get(`${ApplicationConstants.APIURL}/blog/${slug}`);
+  }
+
+  getCategories(): Observable<any>{
+    return this.httpclient.get(`${ApplicationConstants.APIURL}/Categories`);
+  }
+
 
 }

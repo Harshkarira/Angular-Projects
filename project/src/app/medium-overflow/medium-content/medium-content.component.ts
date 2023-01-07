@@ -22,7 +22,7 @@ export class MediumContentComponent implements OnInit {
   // getcards(){
   //   this.cards = this.mediumservice.fetchcards();
   // }
-  cards!: cards[]
+  // cards!: cards[]
 
   fetchBlogs():void {
     this.mediumservice.fetchblogs().subscribe((value:BlogData[])=> {

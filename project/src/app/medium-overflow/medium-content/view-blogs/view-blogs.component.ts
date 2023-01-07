@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MediumService } from 'src/app/medium-overflow/medium.service';
 
 @Component({
   selector: 'app-view-blogs',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewBlogsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mediumService: MediumService) { }
 
   ngOnInit(): void {
+    this.fetchBlog()
+  }
+  fetchBlog():void{
+    this.mediumService.fetchblog("slugh").subscribe((data:any)=>console.warn(data))
   }
 
 }
