@@ -1,0 +1,51 @@
+<div class="col-6" style="margin-left: 20%;">
+    <form [formGroup]="createPostForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="" class="form-control" id="description" cols="30" rows="10" formControlName="description"></textarea>
+        </div>
+    
+        <div class="form-group">
+            <label for="category">Category</label>
+            <div ngbDropdown class="d-inline-block" class="form-group" >
+                <button type="button" class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle>
+                    {{selectedCategory ?? 'select Category'}}
+                </button>
+                <div ngbDropdownMenu>
+                    <button ngbDropdownItem *ngFor="let category of categories" (click)="selectCategory(category)">{{category.Categoryname}}</button>
+                </div>
+            </div>
+                <!-- <select name="category" id="" class="form-control" formControlName="category">
+                    <option value="">Electronics</option>
+                    <option value="">Food</option>
+                    <option value="">Crockery</option>
+                </select> -->
+        </div>
+        <form [formGroup]="createPostForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+                <label for="Slug">Slug</label>
+                <input type="text" class="form-control" id="Slug" formControlName="Slug">
+            </div>
+    
+        <label for="">Schedule Date</label>
+        <div class="input-group">
+            <input
+                class="form-control" 
+                placeholder="yyyy-mm-dd" 
+                name="dp" 
+                ngbDatepicker 
+                #d="ngbDatepicker"
+                [minDate]="todayDate"
+            />
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><fa-icon [icon]="icons.date" class="text-warning"></fa-icon></button>
+        </div>
+        
+    
+        <button type="submit" class="btn btn-success m-2">
+            submit
+        </button>
+    </form>

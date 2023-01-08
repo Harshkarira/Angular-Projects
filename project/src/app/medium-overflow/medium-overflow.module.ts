@@ -5,6 +5,8 @@ import { SharedModule } from '../shared/shared.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MediumHeaderComponent } from './medium-header/medium-header.component';
 import { MediumContentComponent } from './medium-content/medium-content.component';
+import { AddpostComponent } from './addpost/addpost.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -13,11 +15,13 @@ import { MediumContentComponent } from './medium-content/medium-content.componen
     MediumOverflowComponent,
     MediumHeaderComponent,
     MediumContentComponent,
+    AddpostComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
     FontAwesomeModule,
+    ReactiveFormsModule
   ],
 })
 export class MediumOverflowModule { }

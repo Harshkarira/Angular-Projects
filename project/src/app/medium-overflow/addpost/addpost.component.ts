@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MediumService } from '../medium-overflow/medium.service';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { ToastService } from 'src/app/shared/components/toasts/toast.service';
+import { MediumService } from '../medium.service';
 
 @Component({
   selector: 'app-addpost',
@@ -8,15 +11,22 @@ import { MediumService } from '../medium-overflow/medium.service';
   styleUrls: ['./addpost.component.css'],
 })
 export class AddpostComponent implements OnInit {
-
-  constructor(private mediumservice:MediumService) { }
+ 
+  constructor(private mediumservice:MediumService, private ngbCalendar:NgbCalendar, private toastservice: ToastService) { }
   createPostForm!:FormGroup
+  todayDate!:NgbDateStruct;
   categories:any;
   selectedCategory:any;
 
+  validSlug = false;
   ngOnInit(): void {
+    this.todayDate=this.ngbCalendar.getToday()
     this.getCategories();
     this.createForm();
+
+  }
+  icons={
+    date:faCalendar
   }
 
   createForm(){
@@ -24,10 +34,12 @@ export class AddpostComponent implements OnInit {
       title:new FormControl('',[Validators.required]),
       description:new FormControl('',[Validators.required]),
       category:new FormControl(),
-      scheduleDate:new FormControl()
+      scheduleDate:new FormControl(this.todayDate),
+      Slug:new FormControl('')
     })
   }
   submitForm(){
+    this.validateSlug();
     console.log(this.createPostForm)
   }
   getCategories():void {
@@ -43,6 +55,25 @@ export class AddpostComponent implements OnInit {
     })
     this.selectedCategory = categories.Categoryname
     console.warn(this.createPostForm.value)
+  }
+
+  validateSlug(){
+    const Slug = this.createPostForm.get('Slug')?.value;
+    this.mediumservice.validateSlug(Slug).subscribe((value:any)=>{
+      this.validSlug = value.validSlug
+      console.warn(this.validSlug)
+
+      if(this.validSlug){
+        //insert logic
+      }
+      else{
+        //error
+        this.toastservice.show({textOrTpl:'invalid slug',classname:'bg-danger',delay:5000})
+        alert("error")
+      }
+    });
+
+    
   }
 
 }

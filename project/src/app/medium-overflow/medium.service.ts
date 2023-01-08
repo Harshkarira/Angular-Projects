@@ -22,5 +22,13 @@ export class MediumService {
     return this.httpclient.get(`${ApplicationConstants.APIURL}/Categories`);
   }
 
+  validateSlug(Slug:String): Observable<any>{
+    return this.httpclient.get(`${ApplicationConstants.APIURL}/checkSlug/${Slug}`);
+  }
+
+
+
+  
+
 
 }

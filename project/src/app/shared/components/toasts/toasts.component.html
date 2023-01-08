@@ -1,0 +1,10 @@
+<ngb-toast *ngFor="let toast of toastservice.toasts"
+[class]="toast.classname"
+[delay]="toast.delay || 5000"
+>
+<!-- ngIf sabke saath chlta h except ng template because *ngIf woh div ko ng-template me hi convert kr deta hai -->
+<ng-template [ngIf]="toast.textOrTpl !== ''">
+    {{ toast.textOrTpl }}
+</ng-template>
+
+</ngb-toast>

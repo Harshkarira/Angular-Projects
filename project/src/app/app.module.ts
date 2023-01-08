@@ -10,14 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { ViewBlogsComponent } from './medium-overflow/medium-content/view-blogs/view-blogs.component';
 import { ViewProfileComponent } from './shared/components/sidenav/view-profile/view-profile.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AddpostComponent } from './addpost/addpost.component';
+import { AddpostComponent } from './medium-overflow/addpost/addpost.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ViewBlogsComponent,
     ViewProfileComponent,
-    AddpostComponent,
   ],
   imports: [
     BrowserModule,
