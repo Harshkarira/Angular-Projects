@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { faCalendar } from '@fortawesome/free-solid-svg-icons';
 import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Observable, OperatorFunction } from 'rxjs';
 import { ToastService } from 'src/app/shared/components/toasts/toast.service';
 import { MediumService } from '../medium.service';
 
@@ -75,5 +76,13 @@ export class AddpostComponent implements OnInit {
 
     
   }
+
+  tags=['tag1','foo','tag2','tag1']
+  // search : OperatorFunction<string, string[]> = (text$:Observable<string>)=>{
+  //   text$.pipe(
+  //     map((value)=>this.tags.filter((elem:any)=>elem===value))
+  //   )
+  // }
+
 
 }

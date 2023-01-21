@@ -26,6 +26,14 @@ export class MediumService {
     return this.httpclient.get(`${ApplicationConstants.APIURL}/checkSlug/${Slug}`);
   }
 
+  matchtags(tag:String): Observable<any>{
+    return this.httpclient.get(`${ApplicationConstants.APIURL}/matchtags/${tag}`);
+  }
+
+  fetchProfile(userid:String): Observable<any>{
+    return this.httpclient.get(`${ApplicationConstants.APIURL}/fetchProfile/${userid}`);
+  }
+
 
 
   

@@ -2,7 +2,7 @@
 [class]="toast.classname"
 [delay]="toast.delay || 5000"
 >
-<!-- ngIf sabke saath chlta h except ng template because *ngIf woh div ko ng-template me hi convert kr deta hai -->
+<!-- ngIf sabke saath chlta h except ng template because *ngIf woh div ko ng-template me hi convert kr deta hai isliye we write [ngIf] like this in an ng-template-->
 <ng-template [ngIf]="toast.textOrTpl !== ''">
     {{ toast.textOrTpl }}
 </ng-template>

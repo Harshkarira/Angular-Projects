@@ -25,6 +25,11 @@
                     <option value="">Crockery</option>
                 </select> -->
         </div>
+        <br>
+        <div class="form-group">
+            <label for="typeahead-basic">Search:</label>
+            <input id="typeahead-basic" type="text" class="form-control" style="border-radius: 5px;">
+        </div>
         <form [formGroup]="createPostForm" (ngSubmit)="submitForm()">
             <div class="form-group">
                 <label for="Slug">Slug</label>
